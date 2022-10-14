@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "provincias"
+  "defaultProject": "provincias",
+  "cli": {
+    "analytics": false
+  }
 }
