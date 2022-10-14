@@ -23,14 +23,16 @@ export class AppComponent implements OnInit {
     this.searchProvinciasForm.get('search')?.valueChanges.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
-      switchMap( (v) => this.provinciaService.getProvincias() )
+      switchMap((v) => this.provinciaService.getProvincias(v))
     ).subscribe((v) => {
-      this.provincias = v?.nombre
+      console.log(v?.provincias.id, "holi");
+
+      this.provincias = v?.provincias
     })
 
   }
 
   ngOnInit(): void {
-    this.provinciaService.getProvincias();
+    // this.provinciaService.getProvincias();
   }
 }

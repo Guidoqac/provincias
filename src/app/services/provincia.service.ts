@@ -9,9 +9,9 @@ export class ProvinciaService {
 
   constructor(public http: HttpClient) { }
 
-  getProvincias(): Observable<any> {
+  getProvincias(name: string): Observable<any> {
     console.log("guido");
-    return this.http.get('https://apis.datos.gob.ar/georef/api/provincias?nombre=sgo')
+    return this.http.get(`https://apis.datos.gob.ar/georef/api/provincias?nombre=${name}`)
   }
 
 }
