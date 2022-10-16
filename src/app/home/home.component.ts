@@ -21,12 +21,10 @@ export class HomeComponent implements OnInit {
   constructor(public provinciaService: ProvinciaService) {
 
     this.searchProvinciasForm.get('search')?.valueChanges.pipe(
-      debounceTime(1000),
+      debounceTime(2000),
       distinctUntilChanged(),
       switchMap((v) => this.provinciaService.getProvincias(v))
     ).subscribe((v) => {
-      console.log(v?.provincias.id, "holi");
-
       this.provincias = v?.provincias
     })
 
