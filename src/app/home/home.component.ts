@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { ProvinciaService } from '../services/provincia.service';
 
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   public provincias: Array<any> = [];
 
-  constructor(public provinciaService: ProvinciaService) {
+  constructor(public provinciaService: ProvinciaService, private router: Router) {
 
     this.searchProvinciasForm.get('search')?.valueChanges.pipe(
       debounceTime(2000),
@@ -31,6 +32,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  goToGuards() {
+    this.router.navigate(["/guards"])
   }
 
 }
